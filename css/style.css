@@ -9,6 +9,7 @@
 :root {
     --soft-blue: hsl(215, 51%, 70%);
     --cyan: hsl(178, 100%, 50%);
+    --cyan-trans: hsla(178, 100%, 50%, 0.404);
     
     --main-bg: hsl(217, 54%, 11%);
     --card-bg: hsl(216, 50%, 16%);
@@ -23,9 +24,11 @@ body {
     font-size: 18px;
 }
 
-.card-wrapper {
+.nft-wrapper {
     width: 100%;
+    position: relative;
 }
+
 
 .card {
     position: absolute;
@@ -38,12 +41,31 @@ body {
 }
 
 .nft-image {
+    position: relative;
+    z-index: 2;
     width: 300px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
     margin-bottom: 30px;
+    transition: 0.5s linear;
+    cursor: pointer;
+}
+
+.nft-image:hover {
+    opacity: 40%;
+}
+
+.nft-view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--cyan-trans);
+    padding: 125px;
+    border-radius: 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
 }
 
 .info {
@@ -82,6 +104,21 @@ body {
 .card-holder h1,
 .content {
     margin-bottom: 15px;
+}
+
+.card h1,
+.author {
+    width: max-content;
+}
+
+.card h1:hover,
+.author:hover {
+    cursor: pointer;
+    color: var(--cyan);
+}
+
+.author:hover {
+    font-weight: 300;
 }
 
 .content {
